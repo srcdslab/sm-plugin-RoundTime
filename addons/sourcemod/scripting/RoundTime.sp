@@ -9,7 +9,7 @@ public Plugin myinfo =
 	name = "RoundTime",
 	author = "BotoX",
 	description = "Change roundtime instantly and remove limit.",
-	version = "1.0",
+	version = "1.0.0",
 	url = ""
 }
 
