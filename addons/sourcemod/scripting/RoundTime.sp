@@ -9,7 +9,7 @@ public Plugin myinfo =
 	name = "RoundTime",
 	author = "BotoX",
 	description = "Change roundtime instantly and remove limit.",
-	version = "1.0.0",
+	version = "1.0.1",
 	url = ""
 }
 
@@ -24,5 +24,9 @@ public void OnPluginStart()
 
 public void OnConVarChanged(ConVar convar, const char[] oldValue, const char[] newValue)
 {
+	// The gamerules proxy entity doesn't exist between maps (e.g. when a config is executed during a map change)
+	if (FindEntityByClassname(-1, "cs_gamerules") == -1)
+		return;
+
 	GameRules_SetProp("m_iRoundTime", StringToInt(newValue) * 60);
 }
